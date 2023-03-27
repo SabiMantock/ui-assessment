@@ -1,0 +1,25 @@
+.text {
+    color: white;
+    font-size: 8px;
+    margin-bottom: 10px;
+}
+
+.addText {
+    color: white;
+    font-size: 8px;
+    margin-top: 20px;
+}
+
+@media (min-width:768px) {
+    .text {
+        color: white;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .addText {
+        color: white;
+        font-size: 16px;
+        margin-bottom: 40px;
+    }
+}

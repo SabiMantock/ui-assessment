@@ -1,0 +1,11 @@
+.text {
+    color: white;
+    font-size: 9px
+}
+
+@media (min-width:768px) {
+    .text {
+        color: white;
+        font-size: 9px
+    }
+}
