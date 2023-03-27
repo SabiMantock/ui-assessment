@@ -114,7 +114,7 @@ const Details = ({product}) => {
             </button>
           </div>
           <p className='text-sm'>
-            {product.description.replace(/<\/?[^>]+(>|$)/g, '')}
+            {product.description?.replace(/<\/?[^>]+(>|$)/g, '')}
           </p>
           <form className='bg-white  p-4'>
             <div className='mb-4 flex items-center'>
