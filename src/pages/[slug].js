@@ -1,11 +1,14 @@
 import Link from 'next/link';
 import React, {useState} from 'react';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
-import {Carousel} from 'react-responsive-carousel';
+
+
 import Image from 'next/image';
 import heart from '../../public/images/heart.png';
 import cart from '../../public/images/cart-b.png';
 import reward from '../../public/images/reward.png';
+import { Virtual} from 'swiper';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import 'swiper/css';
 
 export const getStaticPaths = async () => {
   const res = await fetch(
@@ -58,27 +61,30 @@ const Details = ({product}) => {
           {product.product_name}
         </Link>
       </div>
+
       <div className='flex flex-col md:flex-row  relative'>
         <div className='w-full md:w-1/2'>
-          <Carousel
-            showStatus={false}
-            swipeable={true}
-            showIndicators={false}
-            showThumbs={false}
+          <Swiper
+            // className={styles.swiper}
+            modules={[ Virtual]}
+            slidesPerView={1}
+            virtual
           >
             {product.gallery.map((gal) => (
-              <div key={gal.id} className=' w-full md:w-4/5'>
-                <Image
-                  src={gal.image}
-                  alt=''
-                  width={500}
-                  height={500}
-                  className='w-full'
-                  priority
-                />
-              </div>
+              <SwiperSlide key={gal.id} virtualIndex={gal.shop_id}>
+                <div className=' w-full md:w-4/5'>
+                  <Image
+                    src={gal.image}
+                    alt=''
+                    width={500}
+                    height={500}
+                    className='w-full'
+                    priority
+                  />
+                </div>
+              </SwiperSlide>
             ))}
-          </Carousel>
+          </Swiper>
           <div className='flex gap-3 mt-3'>
             {product.gallery?.map((gal) => (
               <div key={gal.id} style={{width: '50px'}}>
