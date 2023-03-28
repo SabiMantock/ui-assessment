@@ -39,7 +39,7 @@ In this project, Build a user interface for a ui-assessment.
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Effect Studio Ui Assesement](#)
+- [Effect Studio Ui Assesement](https://ui-assessment-one.vercel.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
