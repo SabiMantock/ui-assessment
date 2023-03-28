@@ -4,6 +4,7 @@ import menu from '../../../public/images/menu.png';
 import searchIcon from '../../../public/images/searchIcon.png';
 import cart from '../../../public/images/cart.png';
 import avatar from '../../../public/images/avatar.png';
+import watsapp from '../../../public/images/watsapp.png';
 import {useTranslation} from 'react-i18next';
 
 export const MobileHeader = () => {
@@ -19,32 +20,16 @@ export const MobileHeader = () => {
             <span> {t('sales')}</span>
           </div>
         </div>
-        <div className='bg-green-500 py-1 px-4 text-sm z-50'>{t('mobile')}</div>
+        <div className='bg-green-500 py-1 px-4  z-50 flex text-xs items-center gap-3 text-white'>
+          <div className='w-5'>
+            <Image src={watsapp} alt='whatsapp' className='w-full' />
+          </div>
+          {t('mobile')}
+        </div>
       </div>
-      <div
-        style={{
-          // display: 'flex',
-          // alignItems: 'center',
-          // width: '100%',
-          padding: '24px 16px',
-          // border: '1px solid red',
-        }}
-      >
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            width: '100%',
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              // alignItems: 'center',
-              width: '100%',
-            }}
-          >
+      <div className=' px-4 py-6'>
+        <div className='flex flex-col w-full'>
+          <div className='flex justify-between w-full'>
             <div style={{display: 'flex', alignItems: 'center', gap: '20px'}}>
               <button style={{width: '25px'}}>
                 <Image src={menu} alt='menu' />

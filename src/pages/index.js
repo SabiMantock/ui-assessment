@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-import {Inter} from 'next/font/google';
 import {Hero} from '@/components/hero/Hero';
 import reward from '../../public/images/reward.png';
 import Image from 'next/image';
@@ -12,26 +11,6 @@ import {Communication} from '@/components/communication/Communication';
 import {CountryLeagues} from '@/components/country/CountryLeagues';
 import {Collections} from '@/components/collections/Collections';
 import {Card} from '@/components/cards/Card';
-
-const inter = Inter({subsets: ['latin']});
-
-// export const getStaticPaths = async () => {
-//   const res = await fetch(
-//     'https://camiestas-futbol.effectstudios.co/api/v1/product-category?sortby=asc'
-//   );
-//   const data = await res.json();
-
-//   const paths = data.categories.data.map((cat) => {
-//     return {
-//       params: {slug: cat.slug},
-//     };
-//   });
-
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// };
 
 export const getStaticProps = async () => {
   const [banners, products, categories, category] = await Promise.all([
@@ -66,6 +45,7 @@ export const getStaticProps = async () => {
 };
 
 export default function Home({banners, products, categories, category}) {
+  console.log({products});
   return (
     <>
       <Head>

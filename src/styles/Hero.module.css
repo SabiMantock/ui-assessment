@@ -18,6 +18,12 @@
     object-position: right center;
 }
 
+.image {
+    width: 100%;
+    color: black !important;
+    height: 100% !important;
+}
+
 .swiper-pagination-custom {
     margin-bottom: 10px;
     height: 8px;

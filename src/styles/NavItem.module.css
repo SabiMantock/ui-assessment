@@ -1,0 +1,16 @@
+.link {
+    font-size: 0.875rem;
+    padding: 5px 0;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.link:hover {
+    border-bottom-color: #fbbf24;
+}
+
+.link.active {
+    border-bottom-color: #fbbf24;
+}

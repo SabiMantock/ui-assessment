@@ -1,10 +1,10 @@
 import React from 'react';
-import {Header} from '../header/Header';
 import {Pagination, Virtual} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import Image from 'next/image';
 import styles from '../../styles/Hero.module.css';
+import bag from '../../../public/images/bag.png';
 
 export const Hero = ({banners}) => {
   return (
@@ -54,8 +54,13 @@ export const Hero = ({banners}) => {
                 </p>
               </div>
               {banner.btn_text && banner.btn_text.length > 0 && (
-                <button className='absolute bottom-5 right-5 px-4 py-2 bg-blue-500 text-white rounded-lg'>
-                  {banner.btn_text}
+                <button className='absolute bottom-5 right-5 flex items-center  bg-black  bg-opacity-25 text-white border-white border-2 '>
+                  <p className='px-4 py-2'>{banner.btn_text}</p>
+                  <div className='w-8 z-50 bg-white  py-3.5  mx-auto'>
+                    <div className='w-3 mx-auto '>
+                      <Image src={bag} alt='bag' className={styles.image} />
+                    </div>
+                  </div>
                 </button>
               )}
             </div>

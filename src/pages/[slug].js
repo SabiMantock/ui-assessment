@@ -3,13 +3,13 @@ import React, {useState} from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import {Carousel} from 'react-responsive-carousel';
 import Image from 'next/image';
-import heart from '../../../public/images/heart.png';
-import cart from '../../../public/images/cart-b.png';
-import reward from '../../../public/images/reward.png';
+import heart from '../../public/images/heart.png';
+import cart from '../../public/images/cart-b.png';
+import reward from '../../public/images/reward.png';
 
 export const getStaticPaths = async () => {
   const res = await fetch(
-    'https://camiestas-futbol.effectstudios.co/api/v1/products'
+    'https://camiestas-futbol.effectstudios.co/api/v1/popular-products?sortby=asc'
   );
   const data = await res.json();
   const paths = data.products.data.map((prod) => {
@@ -38,24 +38,27 @@ export const getStaticProps = async (context) => {
 };
 
 const Details = ({product}) => {
-  console.log({product});
+  console.log({product: product.categories});
+  const titleArray = product.categories.map((prod) => prod.title);
+  const title = titleArray.find((text) => text);
+  console.log(title);
   return (
-    <div className='px-4 md:px-20 relative'>
-      <div className='text-sm mb-2'>
+    <div className='px-4 md:px-20 relative mt-6 pb-10 md:pb-24'>
+      <div className='text-sm mb-10'>
         <Link href='/' className='text-blue-500 hover:text-black'>
           Home
         </Link>
-        {product.categories !== [] ? null : <span className='mx-2'>{'>'}</span>}
+        {title ? <span className='mx-2'>{'>'}</span> : null}
 
         <Link href='#' className='text-blue-500 hover:text-black'>
-          {product.categories !== [] ? null : product.categories[0].title}
+          {product.categories === [] ? null : title}
         </Link>
         <span className='mx-2'>{'>'}</span>
         <Link href='#' className='text-gray-500 hover:text-black'>
           {product.product_name}
         </Link>
       </div>
-      <div className='flex flex-col md:flex-row '>
+      <div className='flex flex-col md:flex-row  relative'>
         <div className='w-full md:w-1/2'>
           <Carousel
             showStatus={false}
@@ -64,7 +67,7 @@ const Details = ({product}) => {
             showThumbs={false}
           >
             {product.gallery.map((gal) => (
-              <div key={gal.id} className='w-3/4'>
+              <div key={gal.id} className=' w-full md:w-4/5'>
                 <Image
                   src={gal.image}
                   alt=''
@@ -207,8 +210,8 @@ const Details = ({product}) => {
           </form>
         </div>
       </div>
-      <div className='mb-10 absolute bottom-16 left-0 hidden md:block'>
-        <div className=' w-40'>
+      <div className='mb-10 absolute bottom-0  left-0 hidden md:block'>
+        <div className=' w-32'>
           <Image src={reward} alt='reward' />
         </div>
       </div>

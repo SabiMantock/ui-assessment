@@ -1,10 +1,13 @@
 import React from 'react';
 import {Footer} from './footer/Footer';
 import {Header} from './header/Header';
+import {Montserrat} from 'next/font/google';
 
-const Layout = ({children, banners}) => {
+const montserrat = Montserrat({subsets: ['latin']});
+
+const Layout = ({children}) => {
   return (
-    <div>
+    <div className={montserrat.className}>
       <Header />
       {children}
       <Footer />

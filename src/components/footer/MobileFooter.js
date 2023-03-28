@@ -56,13 +56,13 @@ export const MobileFooter = () => {
           <div>
             <h3 className='font-bold'>Follow Us</h3>
             <div className='flex items-center gap-1 mt-5'>
-              <div>
+              <div className='w-10'>
                 <Image src={fb} alt='facebook' className='w-full' />
               </div>
-              <div>
+              <div className='w-10'>
                 <Image src={twt} alt='twitter' className='w-full' />
               </div>
-              <div>
+              <div className='w-10'>
                 <Image src={ig} alt='instagram' className='w-full' />
               </div>
             </div>

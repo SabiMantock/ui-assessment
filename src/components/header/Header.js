@@ -6,7 +6,8 @@ import {MobileHeader} from './MobileHeader';
 import search from '../../../public/images/search-b.png';
 import cart from '../../../public/images/cart.png';
 import avatar from '../../../public/images/avatar.png';
-import Link from 'next/link';
+import watsapp from '../../../public/images/watsapp.png';
+import {NavItem} from '../navItem/NavItem';
 
 export const Header = () => {
   const {t} = useTranslation();
@@ -23,35 +24,43 @@ export const Header = () => {
               <span className=''> {t('sales')}</span>
             </div>
           </div>
-          <div className='bg-green-500 py-3 px-8 z-50'>{t('whatsapp')}</div>
+          <div className='bg-green-500 py-3 px-8 z-50 flex text-xs items-center gap-3 text-white'>
+            <div className='w-5'>
+              <Image src={watsapp} alt='whatsapp' className='w-full' />
+            </div>
+
+            {t('whatsapp')}
+          </div>
         </div>
         <div
           style={{
             display: 'flex',
-            alignItems: 'center',
             width: '100%',
           }}
         >
           <div
             style={{background: '#F9DC38', height: '88px', width: '160px'}}
           ></div>
-          <div className='flex flex-col w-full'>
-            <div className='flex items-center justify-between w-full'>
-              <div className='flex '>
+          <div className='flex flex-col w-full justify-between '>
+            <div className='flex border-b-2'>
+              <div className='flex py-1'>
                 <select className='w-40 mr-4 py-2 px-3  rounded-md outline-none '>
                   <option>All categories</option>
                   <option>Category 1</option>
                   <option>Category 2</option>
                   <option>Category 3</option>
                 </select>
-                <form className='flex items-center w-full justify-between '>
-                  <div className=' w-96'>
-                    <input
-                      className='w-full py-2 px-3  rounded-md outline-none   mr-2'
-                      placeholder='what are you looking for?'
-                    />
-                  </div>
-                  <button className='flex items-center bg-yellow-400'>
+              </div>
+              <div className='border-r-2 '></div>
+              <form className='flex items-center w-full justify-between py-1'>
+                <div className=' w-96'>
+                  <input
+                    className='w-full py-2 px-3  rounded-md outline-none   mr-2'
+                    placeholder='what are you looking for?'
+                  />
+                </div>
+                <div className=' h-full pr-8 flex '>
+                  <button className='flex items-center self-center  bg-yellow-400 '>
                     <span className='px-5'>search</span>
                     <div className=' w-10'>
                       <Image
@@ -61,29 +70,27 @@ export const Header = () => {
                       />
                     </div>
                   </button>
-                </form>
-              </div>
-              <div className='flex justify-between items-center gap-10'>
-                <a className='mr-4'>
-                  <Image src={cart} alt='' />
-                </a>
-                <a>
-                  <Image src={avatar} alt='' />
-                </a>
+                </div>
+              </form>
+              <div className='border-r-2 '></div>
+              <div className='flex items-center gap-5 px-5'>
+                <div className='mr-4  '>
+                  <Image src={cart} alt='' className='w-full' />
+                </div>
+                <div className='border-r-2 h-full'></div>
+                <div className=''>
+                  <Image src={avatar} alt='' className='w-full' />
+                </div>
               </div>
             </div>
-            <div>
-              <ul className='mt-5 flex  gap-20 pl-4'>
-                <Link href='/' className='text-sm'>
-                  Home
-                </Link>
-                <li className='text-sm'>T-shirts</li>
-                <li className='text-sm'>NBA</li>
-                <li className='text-sm'>Tracksuits</li>
-                <li className='text-sm'>Products Delivery • 1 – 2 days</li>
-                <li className='text-sm'>Contact</li>
-                <li className='text-sm'>Reviews</li>
-              </ul>
+            <div className='border-b-2 flex px-4 gap-16'>
+              <NavItem href='/'>Home</NavItem>
+              <NavItem href='#'>T-shirts</NavItem>
+              <NavItem href='#'>NBA</NavItem>
+              <NavItem href='#'>Tracksuits</NavItem>
+              <NavItem href='#'>Products Delivery • 1 – 2 days</NavItem>
+              <NavItem href='#'>Contact</NavItem>
+              <NavItem href='#'>Reviews</NavItem>
             </div>
           </div>
         </div>
